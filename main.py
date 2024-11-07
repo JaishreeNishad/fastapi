@@ -21,6 +21,18 @@ def create(item: Item):
 def get_all_data():
     return db
 
+
+@app.delete("/")
+def delete_data(name:str):
+    del db[name]
+    return db
+
+
+@app.put("/")
+def update_data(item: Item):
+     db[item.name] = item.desc
+     return db
+
 # @app.get("/first")
 # def index():
 #     return {"message": "Hello World"}
